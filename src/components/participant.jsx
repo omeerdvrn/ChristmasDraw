@@ -3,6 +3,8 @@ class Participant extends Component {
   state = {
     id: this.props.id,
     name: "",
+    pair: "",
+    drawID: this.props.drawID,
   };
   handleName = (e) => {
     this.setState({
@@ -10,6 +12,7 @@ class Participant extends Component {
     });
     this.props.updateParticipantName(this.state.id, e.target.value);
   };
+
   render() {
     return (
       <div>

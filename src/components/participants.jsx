@@ -11,6 +11,7 @@ class Participants extends Component {
                 <Participant
                   id={p.id}
                   updateParticipantName={this.props.updateParticipantName}
+                  drawID={this.props.drawID}
                 ></Participant>
               </li>
             );
