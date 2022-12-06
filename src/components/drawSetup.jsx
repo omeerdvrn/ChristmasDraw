@@ -10,7 +10,6 @@ function DrawSetup() {
   if (!uuidCreated) {
     setCustomUuid(uuid());
     setUuidCreated(true);
-    setCustomUuid("1");
   }
 
   const addParticipant = () => {
