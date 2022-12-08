@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Participants from "./participants";
 import uuid from "react-uuid";
+import { generatePath } from "react-router-dom";
+
 function DrawSetup() {
   const [lastID, setLastID] = useState(0);
   const [participants, setParticipants] = useState([]);
@@ -29,7 +31,7 @@ function DrawSetup() {
     newList.name = name;
     setParticipants(list);
   };
-  console.log(JSON.stringify(participants));
+
   const post = () => {
     console.log("gonderildi");
     return participants?.forEach((p) => {
@@ -50,7 +52,16 @@ function DrawSetup() {
       ></Participants>
       <button onClick={addParticipant}>Add Participant</button>
       <br />
-      <button className="btn btn-success" onClick={post}>
+      <button
+        className="btn btn-success"
+        onClick={() => {
+          post();
+          new Promise((resolve) => setTimeout(resolve, 1000));
+          window.location.href = generatePath(":drawID", {
+            drawID: customUuid,
+          });
+        }}
+      >
         Generate!
       </button>
     </div>
