@@ -39,7 +39,7 @@ function ResultSetup() {
         setData(data.data[i]);
         setDataReady(true);
         console.log(data.data[i]);
-        setPair(data.data[i].name); //this will be the pair
+        setPair(data.data[i].pair); //this will be the pair
       }
     }
   };

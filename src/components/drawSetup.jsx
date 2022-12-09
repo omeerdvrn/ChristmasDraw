@@ -32,6 +32,19 @@ function DrawSetup() {
     setParticipants(list);
   };
 
+  const randomPair = () => {
+    let s = [];
+    participants.forEach((p) => {
+      var r = participants.find(
+        (f) => f.id !== p.id && !s.includes(f) && f.pair !== p.name
+      );
+      console.log(r);
+      if (r === null) return;
+      p.pair = r.name;
+      s.push(r);
+    });
+  };
+
   const post = () => {
     console.log("gonderildi");
     return participants?.forEach((p) => {
@@ -55,6 +68,8 @@ function DrawSetup() {
       <button
         className="btn btn-success"
         onClick={() => {
+          randomPair();
+          new Promise((resolve) => setTimeout(resolve, 1000));
           post();
           new Promise((resolve) => setTimeout(resolve, 1000));
           window.location.href = generatePath(":drawID", {
