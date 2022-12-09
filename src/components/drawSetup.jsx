@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Participants from "./participants";
 import uuid from "react-uuid";
 import { generatePath } from "react-router-dom";
@@ -57,14 +57,18 @@ function DrawSetup() {
   };
 
   return (
-    <div className="container">
-      <Participants
-        participants={participants}
-        updateParticipantName={(id, name) => updateParticipantName(id, name)}
-        drawID={customUuid}
-      ></Participants>
-      <button onClick={addParticipant}>Add Participant</button>
-      <br />
+    <React.Fragment>
+      <div className="input-group">
+        <Participants
+          participants={participants}
+          updateParticipantName={(id, name) => updateParticipantName(id, name)}
+          drawID={customUuid}
+        ></Participants>
+        <button className="btn btn-primary" onClick={addParticipant}>
+          Add Participant
+        </button>
+        <br />
+      </div>
       <button
         className="btn btn-success"
         onClick={() => {
@@ -79,7 +83,7 @@ function DrawSetup() {
       >
         Generate!
       </button>
-    </div>
+    </React.Fragment>
   );
 }
 

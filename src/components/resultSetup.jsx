@@ -47,27 +47,31 @@ function ResultSetup() {
   const form = () => {
     if (!dataReady) {
       return (
-        <div>
-          <input
-            type="text"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          ></input>
-          <button onClick={findDataByName}>Get my pair!</button>
-        </div>
+        <React.Fragment>
+          <p className="alert alert-info">Type your name to get your pair!</p>
+          <div className="input-group">
+            <input
+              type="text"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            ></input>
+            <button className="btn btn-success" onClick={findDataByName}>
+              Get my pair!
+            </button>
+          </div>
+        </React.Fragment>
       );
     } else {
-      return <h2>You select {pair}!</h2>;
+      return (
+        <h2 className="alert alert-success">
+          {name}, you are paired to {pair}!
+        </h2>
+      );
     }
   };
 
-  return (
-    <React.Fragment>
-      <h1>Result</h1>
-      {form()}
-    </React.Fragment>
-  );
+  return <React.Fragment>{form()}</React.Fragment>;
 }
 
 export default ResultSetup;

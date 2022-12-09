@@ -12,7 +12,9 @@ function App() {
   return (
   <Router>
     <div className="container">
-      <h1 style={{"color": "red"}}>Happy New Year!</h1>
+      
+      <h1>Happy New Year!</h1>
+      
       <Routes>
         <Route exact path="/" element={<DrawSetup/>}></Route>   
         <Route path={":drawID"} element={<ResultSetup/>}/>
