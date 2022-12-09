@@ -5,7 +5,7 @@
 		private $host = 'localhost';
 		private $db_name = 'christmas_draw';
 		private $username = 'root';
-		private $password = '12Omer12.';
+		private $password = 'password';
 		private $conn;
 
 		public function connect(){
