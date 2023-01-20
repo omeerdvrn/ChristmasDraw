@@ -11,21 +11,21 @@
 	$database = new Database();
 	$db = $database->connect();
 
-	//Instantiate blog post object
+	//Instantiate participant object
 	$participant = new Participant($db);
 
 	//get id from url
 	$participant->drawID = isset($_GET['drawID'])?$_GET['drawID']:die();
 
-	//get post
+	//get participant
 	$result = $participant->read_by_drawID();
 
 	//Get row count
 	$num = $result->rowCount();
 
-	//Check if any posts
+	//Check if any participants
 	if ($num > 0) {
-		// Post array
+		// participant array
 		$participants_arr = array();
 		$participants_arr['data'] = array();
 
@@ -48,7 +48,7 @@
 		 echo json_encode($participants_arr);
 	}
 	else{
-		//No posts
+		//No participants
 		echo json_encode(array('message' => 'No Participants Found'));
 	}
 ?>

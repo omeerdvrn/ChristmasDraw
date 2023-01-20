@@ -9,23 +9,26 @@ function ResultSetup() {
   const [pair, setPair] = useState("");
   useEffect(() => {
     setLoading(true);
-
-    fetch(
-      "http://localhost/christmas_draw/api/participant/read_by_drawID.php?drawID=" +
-        drawID,
-      {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      fetch(
+        "http://localhost/christmas_draw/api/participant/read_by_drawID.php?drawID=" +
+          drawID,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setData(data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      return <p>Error: {error}</p>;
+    }
   }, []);
 
   if (loading) {

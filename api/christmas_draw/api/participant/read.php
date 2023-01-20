@@ -11,17 +11,17 @@
 	$database = new Database();
 	$db = $database->connect();
 
-	//Instantiate blog post object
+	//Instantiate participant object
 	$participant = new Participant($db);
-	//Blog post query
+	//Participant query
 	$result = $participant->read();
 
 	//Get row count
 	$num = $result->rowCount();
 
-	//Check if any posts
+	//Check if any participants
 	if ($num > 0) {
-		// Post array
+		// participant array
 		$participants_arr = array();
 		$participants_arr['data'] = array();
 
@@ -44,7 +44,7 @@
 		 echo json_encode($participants_arr);
 	}
 	else{
-		//No posts
+		//No participants
 		echo json_encode(array('message' => 'No Participants Found'));
 	}
  ?>

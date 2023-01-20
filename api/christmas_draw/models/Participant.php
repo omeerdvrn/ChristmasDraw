@@ -6,7 +6,7 @@
 		private $table = 'participants';
 
 
-		//post properties
+		//participant properties
 		public $id;
 		public $name;
 		public $pair;
@@ -41,7 +41,7 @@
 			return $stmt;
 		} 
 
-		//Get single post
+		//Get single participant
 		public function read_single(){
 			//create query
 			$query = 'SELECT
@@ -74,7 +74,7 @@
 			$this->drawID = $row['drawID'];
 		}
 
-		//Get single post
+		//Get single participant
 		public function read_by_drawID(){
 			//create query
 			$query = 'SELECT
@@ -102,7 +102,7 @@
 		}
 
 
-		//create post
+		//create participant
 		public function create(){
 			$query = 'INSERT INTO ' . $this->table .'
 			SET 

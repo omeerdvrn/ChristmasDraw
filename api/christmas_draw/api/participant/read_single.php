@@ -11,13 +11,13 @@
 	$database = new Database();
 	$db = $database->connect();
 
-	//Instantiate blog post object
+	//Instantiate participant object
 	$participant = new Participant($db);
 
 	//get id from url
 	$participant->name = isset($_GET['name'])?$_GET['name']:die();
 
-	//get post
+	//get participant
 	$participant->read_single();
 
 	//create array

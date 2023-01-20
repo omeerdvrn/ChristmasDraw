@@ -14,7 +14,7 @@
 	$database = new Database();
 	$db = $database->connect();
 
-	//Instantiate blog post object
+	//Instantiate participant object
 	$participant = new Participant($db);
 
 	//get the raw posted data
@@ -27,7 +27,7 @@
 	$participant->pair = $data->pair;
 	$participant->drawID = $data->drawID;
 
-	//Create post
+	//Create participant
 	if($participant->create()) {
 		echo json_encode(
 			array('message' => 'Post Created')
